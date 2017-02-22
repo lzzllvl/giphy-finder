@@ -8,9 +8,7 @@ let paramObj = {
   api_key: apiKey,
 };
 
-
-
-let createButtons = (currentValue) => {
+let createButton = (currentValue) => {
   let btn = $("<button>");
   btn.text(currentValue);
   btn.attr("data-name", currentValue);
@@ -25,7 +23,6 @@ let sendAjax = (query) => {
   .done((response) => {
     $("#results").children().remove();
     response.data.map(placeImages);
-    imageClicks();
   });
 };
 
@@ -38,19 +35,18 @@ let placeImages = (currentValue)=>{
   imgTag.attr("data-paused", paused);
   imgTag.attr("data-active", active);
   $("#results").append(imgTag);
-}
+};
 
-let buttonClicks = () => {
-  $("#btn-list > button").on("click", (event)=>{
+
+$("#btn-list").on("click", "button",(event)=>{
     paramObj.q = $(event.target).data("name");
     let encParam = $.param(paramObj);
     let queryUrl = urlBase + encParam;
     sendAjax(queryUrl);
   });
-};
 
-let imageClicks = () => {
-  $("#results > img").on("click", (event) => {
+
+$("#results").on("click", "img", (event) => {
     let self = $(event.target);
     let state = self.data("state");
     if(state === "paused"){
@@ -61,21 +57,13 @@ let imageClicks = () => {
       self.data("state", "paused");
     }
   });
-}
-
-
-
-
 
 $("form").submit((event)=>{
   event.preventDefault();
   let added = $("#input-text").val();
   choices.push(added);
-  $("#btn-list").children().remove().html("");
-  choices.forEach(createButtons);
-  buttonClicks();
+  createButton(added);
   $("#input-text").val("Hip Hop Artists")
 });
 
-choices.forEach(createButtons);
-buttonClicks();
+choices.forEach(createButton);

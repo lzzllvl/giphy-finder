@@ -1,8 +1,25 @@
+body {
+  font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+  text-align: center;
+}
+
+header {
+  font-size: 26px;
+  margin: 15px;
+  
+
+}
+
 #btn-list > button {
-  padding: 5px;
+  padding: 3px;
   margin: 5px;
 }
 
-#results > img {
-  margin: 10px;
+p {
+  padding:10px 0 4px 0;
+}
+
+span {
+  display: inline-block;
+  margin: 0 7px;
 }

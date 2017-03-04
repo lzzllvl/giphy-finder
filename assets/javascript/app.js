@@ -1,7 +1,7 @@
 
 
 //the array of initial buttons
-let choices = ["Stoked", "Pissed Off", "Happy", "I'm Done", "Drunk", "ROFL", "Lowkey", "Hyped", "Meh", "Not Amused"]
+let choices = ["Stoked", "Pissed Off", "Happy", "I'm Done", "Drunk", "ROFL", "Lowkey", "Hyped", "Meh", "Not Amused"];
 
 //open api key
 let apiKey = "dc6zaTOxFJmzC";
@@ -78,9 +78,9 @@ let readyFunc = () => {
 
   //adding an event listener to button children
   //of #btn-list
-  $("#btn-list").on("click", "button",(event)=>{
+  $("#btn-list").on("click", "button", function(event){
       //this sets the q property of the param object
-      paramObj.q = $(event.target).data("name");
+      paramObj.q = $(this).data("name");
       //which is then encoded with the jquery param method
       let encParam = $.param(paramObj);
       //put it together and we have an API url
@@ -93,7 +93,7 @@ let readyFunc = () => {
   //adding the event listener for making the gif change
   //between still and active states
   $("#results").on("click", "img", function(event) {
-      
+
       let self = $(this);
       //switch `src` attribute to active or paused, based on
       // the data-state attribute

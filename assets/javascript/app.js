@@ -7,7 +7,7 @@ let choices = ["Stoked", "Pissed Off", "Happy", "I'm Done", "Drunk", "ROFL", "Lo
 let apiKey = "dc6zaTOxFJmzC";
 
 //url base for the api
-let urlBase = "http://api.giphy.com/v1/gifs/search?";
+let urlBase = "https://api.giphy.com/v1/gifs/search?";
 
 //constant paramaters for the query are saved here
 //query name(q) will be added later

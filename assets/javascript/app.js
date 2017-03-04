@@ -92,8 +92,9 @@ let readyFunc = () => {
 
   //adding the event listener for making the gif change
   //between still and active states
-  $("#results").on("click", "img", (event) => {
-      let self = $(event.target);
+  $("#results").on("click", "img", function(event) {
+      
+      let self = $(this);
       //switch `src` attribute to active or paused, based on
       // the data-state attribute
       let state = self.data("state");
